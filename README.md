@@ -13,6 +13,54 @@ GAOSI is a batteries-included project generator that spins up a production-ready
 
 ## Usage
 
+### Install or build GAOSI
+
+GAOSI runs on Windows, Linux, and macOS. Install Go 1.23 or newer, then build it for your computer:
+
+| Platform | File |
+|----------|------|
+| Windows x64 | `gaosi-windows-amd64.exe` |
+| Linux x64 / ARM64 | `gaosi-linux-amd64`, `gaosi-linux-arm64` |
+| macOS Intel / Apple Silicon | `gaosi-darwin-amd64`, `gaosi-darwin-arm64` |
+
+On Linux/macOS, mark the selected binary executable with `chmod +x <filename>`, then run it as `./<filename> --help`.
+
+#### Run a prebuilt binary
+
+Choose the file for your operating system and processor architecture from `dist/`. These are native executables; the Windows `.exe` is only for Windows.
+
+**Linux x64:**
+
+```sh
+cd dist
+chmod +x gaosi-linux-amd64
+./gaosi-linux-amd64 --help
+./gaosi-linux-amd64 new my-service
+```
+
+For 64-bit ARM Linux, use `gaosi-linux-arm64` in those commands.
+
+**macOS:**
+
+```sh
+cd dist
+chmod +x gaosi-darwin-arm64
+./gaosi-darwin-arm64 --help
+./gaosi-darwin-arm64 new my-service
+```
+
+Use `gaosi-darwin-arm64` on Apple Silicon (M1/M2/M3/M4) and `gaosi-darwin-amd64` on an Intel Mac. Replace the filename in the commands above with the matching binary. If macOS reports that the file is from an unidentified developer, allow it in **System Settings > Privacy & Security**, then run it again.
+
+**Windows PowerShell:**
+
+```powershell
+cd dist
+./gaosi-windows-amd64.exe --help
+./gaosi-windows-amd64.exe new my-service
+```
+
+### Generate a service
+
 ```bash
 ./gaosi new test-services --module test-services --framework gin --database postgres --message-queue kafka --swagger --output ..
 ```
